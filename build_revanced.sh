@@ -92,7 +92,7 @@ if [ -f "com.google.android.youtube.apk" ]; then
     java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar \
         ${patches[@]} \
         $EXPERIMENTAL \
-        -a com.google.android.youtube.apk -o build/Youtube_Revanced.apk
+        -a com.google.android.youtube.apk -o build/Revanced.apk
 else
     echo "Cannot find YouTube APK, skipping build"
 fi
