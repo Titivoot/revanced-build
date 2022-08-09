@@ -24,15 +24,17 @@ jobs:
       - name: Build APKs
         run: ./build_revanced.sh
 
-      - name: Set current date as env variable
-        run: echo "date_now=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+      - name: Set env variable
+        run: |
+          echo "date_now=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+          echo "REVANCED_VERSION=$(curl -s 'https://data.titivoot.workers.dev/version' -H 'authorization: ${{ secrets.DW_KEY }}')" >> $GITHUB_ENV
 
       - uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
           prerelease: false
-          title: "Revanced ${{ env.date_now }}"
+          title: "Revanced ${{ env.REVANCED_VERSION }} (${{ env.date_now }})"
           files: |
             build/*.apk
             vanced-microG.apk
