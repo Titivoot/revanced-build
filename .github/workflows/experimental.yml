@@ -18,6 +18,8 @@ jobs:
 
       - name: Download APK
         run: ./download.sh
+        env: 
+          DW_KEY: ${{ secrets.DW_KEY }}
 
       - name: Build APKs, force patches on untested YouTube versions
         run: ./build_revanced.sh experimental

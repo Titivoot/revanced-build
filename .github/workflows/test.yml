@@ -20,6 +20,8 @@ jobs:
 
       - name: Download APK
         run: ./download.sh
+        env: 
+          DW_KEY: ${{ secrets.DW_KEY }}
 
       - name: Test Build APKs
         run: |
