@@ -24,7 +24,7 @@ jobs:
       - name: Test Build APKs
         run: |
           ./build_revanced.sh
-          for filename in build/Revanced.apk; do
+          for filename in build/Revanced.apk build/Revanced-amoled.apk; do
             if [ -e "$filename" ]; then
               printf '"%s" exists\n' "$filename"
             else

@@ -89,11 +89,17 @@ echo "************************************"
 mkdir -p build
 
 if [ -f "com.google.android.youtube.apk" ]; then
-    echo "Building APK"
+    echo "Building Revanced APK"
     java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar \
+        -e amoled \
         ${patches[@]} \
         $EXPERIMENTAL \
         -a com.google.android.youtube.apk -o build/Revanced.apk
+    echo "Building Revanced Amoled APK"
+    java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar \
+        ${patches[@]} \
+        $EXPERIMENTAL \
+        -a com.google.android.youtube.apk -o build/Revanced-amoled.apk
 else
     echo "Cannot find YouTube APK, skipping build"
 fi
