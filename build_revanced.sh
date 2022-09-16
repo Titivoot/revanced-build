@@ -91,7 +91,7 @@ mkdir -p build
 if [ -f "com.google.android.youtube.apk" ]; then
     echo "Building Revanced APK"
     java -jar revanced-cli.jar -m revanced-integrations.apk -b revanced-patches.jar \
-        -e amoled \
+        -e theme \
         ${patches[@]} \
         $EXPERIMENTAL \
         -a com.google.android.youtube.apk -o build/Revanced.apk
